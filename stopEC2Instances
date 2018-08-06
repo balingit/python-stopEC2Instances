@@ -1,0 +1,14 @@
+#!/usr/bin/python3
+import boto3
+ec2 = boto3.resource('ec2')
+
+filters = [
+        {
+                'Name': 'instance-state-name',
+                'Values': ['running']
+        }
+]
+
+Instances = ec2.instances.filter(Filters=filters).stop()
+
+print(Instances)
