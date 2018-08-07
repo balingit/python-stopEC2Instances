@@ -1,0 +1,10 @@
+aws iam create-role \
+  --path "/user-service-role/" \
+  --role-name "lambda-stop-ec2" \
+  --assume-role-policy-document "file://lambda_trustpolicy.json" \
+  --description "Allows Lambda to stop EC2 Instances"
+
+aws iam put-role-policy \
+  --role-name "lambda-stop-ec2" \
+  --policy-name "stopEC2Instances" \
+  --policy-document "file://ec2Stop_permission.json"
