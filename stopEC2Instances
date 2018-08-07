@@ -1,14 +1,11 @@
-#!/usr/bin/python3
 import boto3
 ec2 = boto3.resource('ec2')
-
-filters = [
+def lambda_handler(event, context):
+    filters = [
         {
-                'Name': 'instance-state-name',
-                'Values': ['running']
+            'Name': 'instance-state-name',
+            'Values': ['running']
         }
-]
-
-Instances = ec2.instances.filter(Filters=filters).stop()
-
-print(Instances)
+    ]
+    ec2.instances.filter(Filters = filters).stop()
+    return 'stopEC2Instances completed'
