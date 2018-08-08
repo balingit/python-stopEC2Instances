@@ -8,7 +8,7 @@ The following example files will create an IAM role with an inline policy.
 The main script that runs AWS commands to create a role and create an inline policy.  The policy documents are on separate JSON files.
 
 ## lambda_trustpolicy.json
-This is the trust relationship to give the lambda function the assumed role.
+This is the trust relationship giving the lambda function the assumed role.
 
 ## ec2Stop_permission.json
 An inline policy granted to the role.  The lambda function requires describe-instances and stop-instances permissions.
